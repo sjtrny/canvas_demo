@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Assignment Feedback</title>
+
+<body>
+    <div class="container">
+
+    <h1>Summary</h1>
+
+    <table class="table table-bordered table-sm">
+        <colgroup>
+           <col span="1" style="width: 6%;">
+           <col span="1" style="width: 14%;">
+        </colgroup>
+
+    <tbody>
+        <tr>
+            <td>Student ID</td>
+            <td>{{student_info['student_id']}}</td>
+        </tr>
+        <tr>
+            <td>Submitted At</td>
+            <td>{{student_info['submitted_at'].strftime('%Y-%m-%d %H:%M:%S')}}</td>
+        </tr>
+        <tr>
+            <td>Days Late</td>
+            <td>{{student_info['days_late']}}</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>{{student_info['total']}}</td>
+        </tr>
+        <tr>
+            <td>Late Penalty %</td>
+            <td>{{student_info['late_penalty']}}</td>
+        </tr>
+        <tr>
+            <td>Final Mark</td>
+            <td>{{student_info['final_mark']}}</td>
+        </tr>
+    </tbody>
+    </table>
+
+    <h1>Marking Rubric</h1>
+    {% for criteria_dict in criteria_list %}
+
+    <h2>{{criteria_dict['Name']}} ({{criteria_dict['Marks']}} Marks)</h2>
+
+    <table class="table table-bordered table-sm">
+        <thead class="thead-light">
+            <th>Component</th>
+            <th>Criteria</th>
+            <th>Max</th>
+            <th>Mark</th>
+        </thead>
+
+        <tbody>
+        {% for component_dict in criteria_dict['Items'] %}
+            <tr>
+                <td>{{ component_dict['Component'] }}</td>
+                <td>{{ component_dict['Criteria'] }}</td>
+                <td>{{ component_dict['Max'] }}</td>
+                <td>{{ student_results[ critera_map[criteria_dict['Name']] [component_dict['Component']]  ] }}</td>
+            </tr>
+        {% endfor %}
+            <tr>
+                {% for i in range(2) %}
+                <td></td>
+                {% endfor %}
+                <td style="font-weight: bold">Total</td>
+                <td>{{ student_results[ criteria_dict['Name'] ~ ":Total"] }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    {% endfor %}
+
+
+    <p style="page-break-before: always">
+    <h1>Additional Comments</h1>
+
+    {{ feedback }}
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

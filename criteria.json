@@ -1,0 +1,39 @@
+[
+  {
+    "Name": "Task A: EDA",
+    "Marks": 20,
+    "Items": [
+      {
+        "Component": 1,
+        "Criteria": "Properly checking/dealing with missing values",
+        "Max": 4
+      },
+      {
+        "Component": 2,
+        "Criteria": "Coherent and thorough EDA with sufficient explanation. Excellent presentation of analysis results.",
+        "Max": 16
+      }
+    ]
+  },
+  {
+    "Name": "Task B: Benchmark Model",
+    "Marks": 15,
+    "Items": [
+      {
+        "Component": 1,
+        "Criteria": "Build a logistic regression model.",
+        "Max": 4
+      },
+      {
+        "Component": 2,
+        "Criteria": "Validation Process <ul><li>Description of validation process</li><li>Justification of validation process</li></ul>",
+        "Max": 8
+      },
+      {
+        "Component": 3,
+        "Criteria": "Analysis of validation results <ul><li>Evaluate benchmark model performance, identify strengths, weaknesses</li><li>Provide sufficient detail</li></ul>",
+        "Max": 3
+      }
+    ]
+  }
+]

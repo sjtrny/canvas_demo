@@ -1,0 +1,6 @@
+Jinja2
+markdown2
+pandas
+pdfkit
+requests
+xlrd
